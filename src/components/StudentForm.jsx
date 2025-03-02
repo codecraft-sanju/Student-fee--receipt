@@ -139,7 +139,6 @@
 
 // export default StudentForm;
 
-
 import { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -219,38 +218,90 @@ const StudentForm = () => {
           Student Fee Form
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
-          {[
-            { name: 'name', type: 'text', placeholder: 'Student Name' },
-            { name: 'email', type: 'email', placeholder: 'Student Email' },
-            { name: 'feesPaid', type: 'number', placeholder: 'Fees Paid (₹)' },
-            {
-              name: 'startDate',
-              type: 'date',
-              placeholder: 'Fee Period Start Date',
-            },
-            {
-              name: 'endDate',
-              type: 'date',
-              placeholder: 'Fee Period End Date',
-            },
-          ].map((input) => (
-            <div key={input.name}>
-              <input
-                type={input.type}
-                name={input.name}
-                placeholder={input.placeholder}
-                value={student[input.name]}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg border-2 border-gray-600 bg-gray-900 text-white focus:border-blue-500 focus:outline-none placeholder-gray-400"
-                required
-              />
-              {errors[input.name] && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors[input.name]}
-                </p>
-              )}
-            </div>
-          ))}
+          {/* Name Input */}
+          <div>
+            <label className="text-white mb-2 block">Student Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter student name"
+              value={student.name}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border-2 border-gray-600 bg-gray-900 text-white focus:border-blue-500 focus:outline-none placeholder-gray-400"
+              required
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+
+          {/* Email Input */}
+          <div>
+            <label className="text-white mb-2 block">Student Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter student email"
+              value={student.email}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border-2 border-gray-600 bg-gray-900 text-white focus:border-blue-500 focus:outline-none placeholder-gray-400"
+              required
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          {/* Fees Paid Input */}
+          <div>
+            <label className="text-white mb-2 block">Fees Paid (₹)</label>
+            <input
+              type="number"
+              name="feesPaid"
+              placeholder="Enter fees paid amount"
+              value={student.feesPaid}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border-2 border-gray-600 bg-gray-900 text-white focus:border-blue-500 focus:outline-none placeholder-gray-400"
+              required
+            />
+            {errors.feesPaid && (
+              <p className="text-red-500 text-sm mt-1">{errors.feesPaid}</p>
+            )}
+          </div>
+
+          {/* Start Date Input */}
+          <div>
+            <label className="text-white mb-2 block">
+              Fee Period Start Date
+            </label>
+            <input
+              type="date"
+              name="startDate"
+              value={student.startDate}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border-2 border-gray-600 bg-gray-900 text-white focus:border-blue-500 focus:outline-none"
+              required
+            />
+            {errors.startDate && (
+              <p className="text-red-500 text-sm mt-1">{errors.startDate}</p>
+            )}
+          </div>
+
+          {/* End Date Input */}
+          <div>
+            <label className="text-white mb-2 block">Fee Period End Date</label>
+            <input
+              type="date"
+              name="endDate"
+              value={student.endDate}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border-2 border-gray-600 bg-gray-900 text-white focus:border-blue-500 focus:outline-none"
+              required
+            />
+            {errors.endDate && (
+              <p className="text-red-500 text-sm mt-1">{errors.endDate}</p>
+            )}
+          </div>
 
           <button
             type="submit"
@@ -284,3 +335,4 @@ const StudentForm = () => {
 };
 
 export default StudentForm;
+
