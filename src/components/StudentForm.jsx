@@ -44,8 +44,9 @@ const StudentForm = () => {
 
     try {
       const response = await axios.post(
-    //    'https://student-fee-receipt.onrender.com/send-email',
-        'http://localhost:5000/send-email',
+       'https://student-fee-receipt.onrender.com/send-email',
+        //'http://localhost:5000/send-email',
+
         student,
       );
       setMessage(response.data.message);
