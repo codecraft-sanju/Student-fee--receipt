@@ -10,7 +10,7 @@ app.use(express.json());
 app.post('/send-email', async (req, res) => {
   const { name, email, feesPaid, startDate, endDate } = req.body;
 
-  console.log(' Email Sending Request:', req.body); // Debugging 
+  console.log(' Email Sending Request:', req.body); // Debug
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
