@@ -19,7 +19,7 @@ app.post('/send-email', async (req, res) => {
       pass: process.env.EMAIL_PASS, 
     },
     tls: {
-      rejectUnauthorized: false, // SSL Error false
+      rejectUnauthorized: false, //  SSL Error false
     },
   });
 
